@@ -1,4 +1,4 @@
-% -- vehicle(Brand, Reference, Type, Price, Year).
+ % -- vehicle(Brand, Reference, Type, Price, Year).
 
 
 % -- Toyota
@@ -28,3 +28,13 @@ vehicle(chevrolet, tracker, suv, 26000, 2021).
 vehicle(chevrolet, silverado, pickup, 40000, 2022).
 vehicle(chevrolet, camaro, sport, 42000, 2021).
 vehicle(chevrolet, traverse, suv, 35000, 2023).
+
+% -- Budget 
+meet_budget(Reference, BudgetMax):- vehicle(_, Reference, _, Price, _), Price =< BudgetMax.
+
+% -- List by Brand
+list_brand(Brand, Result):- findall(Reference, vehicle(Brand, Reference, _, _, _), Result).
+
+% -- List by Type
+list_type(Type, Result):- findall(Brand:Reference, vehicle(Brand, Reference, Type, _, _), Result).  % "Brand:Reference" para que devuelve resultados en pareja
+
