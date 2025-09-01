@@ -1,4 +1,4 @@
- % -- vehicle(Brand, Reference, Type, Price, Year).
+% -- vehicle(Brand, Reference, Type, Price, Year).
 
 
 % -- Toyota
@@ -37,4 +37,24 @@ list_brand(Brand, Result):- findall(Reference, vehicle(Brand, Reference, _, _, _
 
 % -- List by Type
 list_type(Type, Result):- findall(Brand:Reference, vehicle(Brand, Reference, Type, _, _), Result).  % "Brand:Reference" para que devuelve resultados en pareja
+
+% -- List by Year
+list_year(Year, Result):- findall(Brand:Reference, vehicle(Brand, Reference, _, _, Year), Result).
+
+
+% -- List by Price Range
+list_price(MinPrice, MaxPrice, Result) :-
+    findall(Brand:Reference,
+            (vehicle(Brand, Reference, _, Price, _),
+             Price >= MinPrice,
+             Price =< MaxPrice),
+            Result).
+
+
+% -- Generate Report
+generate_report(Brand, Type, Budget, result(Vehicles, Total)):-
+	findall(Reference:Price, (vehicle(Brand, Reference, Type, Price, _), Price =< Budget), Vehicles), 
+	findall(Price, (vehicle(Brand, _, Type, Price, _), Price =< Budget), Prices),
+	sum_list(Prices, Total),  % -- sum_list suma los valores de la lista del primer parametro
+	Total =< 1000000.
 
