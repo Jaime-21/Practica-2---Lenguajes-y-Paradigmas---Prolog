@@ -47,12 +47,15 @@ para finalizar.
 
 
 List_price:
+
 <img width="865" height="121" alt="image" src="https://github.com/user-attachments/assets/024e1e74-0552-4580-9d68-bfef2c056869" />
 
 list_Brand:
+
 <img width="769" height="43" alt="image" src="https://github.com/user-attachments/assets/15976cbf-dac4-456a-b574-99841fc33e0b" />
 
-generate_report
+generate_report:
+
 <img width="802" height="103" alt="image" src="https://github.com/user-attachments/assets/ff5e2d86-0dbc-46c9-bbb9-29d6953333b2" />
 
 
