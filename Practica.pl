@@ -2,11 +2,12 @@
 
 
 % -- Toyota
-vehicle(toyota, 'land cruiser prado', suv, 65000, 2023).
+vehicle(toyota, 'land cruiser prado', suv, 24000, 2023).
 vehicle(toyota, corolla, sedan, 20000, 2024).
 vehicle(toyota, hilux, pickup, 50000, 2025).
 vehicle(toyota, camry, sedan, 30000, 2023).
 vehicle(toyota, supra, sport, 45000, 2021). 
+vehicle(toyota, rav4, suv, 28000, 2022). 
 
 % -- Ford
 vehicle(ford, raptor, pickup, 80000, 2022).
@@ -44,9 +45,9 @@ list_year(Year, Result):- findall(Brand:Reference, vehicle(Brand, Reference, _, 
 
 
 % -- List by Price Range
-list_price(MinPrice, MaxPrice, Brand, Result) :-
+list_price(MinPrice, MaxPrice, Brand, Type, Result) :-
     findall(Reference:Price,
-            (vehicle(Brand, Reference, _, Price, _),
+            (vehicle(Brand, Reference, Type, Price, _),
              Price >= MinPrice,
              Price =< MaxPrice),
             Result).
